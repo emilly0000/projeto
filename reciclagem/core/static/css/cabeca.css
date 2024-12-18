@@ -1,0 +1,76 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    display: flex;
+    justify-content: space-between; /* Espaço uniforme entre os elementos */
+    align-items: center;
+    padding: 10px 30px; /* Ajustando o espaçamento interno */
+    background-color: #028a0f;
+}
+
+.logo {
+    width: 60px; /* Dimensão moderada para a logo */
+}
+
+.menu {
+    list-style-type: none;
+    display: flex;
+    gap: 20px; /* Espaço uniforme entre os links */
+    margin: 0; /* Removendo margem padrão */
+    padding: 0; /* Removendo padding padrão */
+}
+
+.menu li a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px; /* Diminuindo levemente o tamanho da fonte */
+    font-weight: bold;
+}
+
+header p {
+    margin: 0 10px 0 0; /* Espaçamento ao lado do nome do usuário */
+    color: white; /* Cor branca para o texto de saudação */
+    font-size: 14px;
+}
+
+header form {
+    margin: 0; /* Ajuste de margens no formulário */
+}
+
+header button {
+    background-color: white;
+    color: #028a0f;
+    border: none;
+    padding: 5px 10px;
+    font-size: 14px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+header button:hover {
+    background-color: #f4f4f4;
+    color: #026d0d;
+}
+
+/* Responsividade para dispositivos menores */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column; /* Alinhar itens verticalmente */
+        align-items: flex-start; /* Alinhar itens ao início */
+    }
+
+    .menu {
+        flex-direction: column; /* Links em coluna */
+        gap: 10px;
+    }
+
+    header p {
+        margin: 10px 0;
+    }
+}

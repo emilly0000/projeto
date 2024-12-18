@@ -1,0 +1,310 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    overflow-x: hidden; /* Evita barra de rolagem horizontal */
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f8f8f8;
+    margin: 0;
+    display: flex;
+    flex-direction: column; /* Garante que o footer esteja no final */
+    min-height: 100vh; /* Força o corpo a ocupar toda a altura da janela */
+    justify-content: space-between; /* Garante que o footer seja empurrado para baixo */
+}
+
+header {
+    display: flex;
+    justify-content: space-between; /* Espaço entre logo e menu/hamburger */
+    align-items: center;
+    background-color: #2e7d32; /* Verde */
+    color: white;
+    padding: 10px 20px;
+    position: relative;
+
+}
+
+
+/* Logo - Lado esquerdo */
+.logo {
+    max-height: 50px;
+    order: 0;
+}
+
+
+.menu {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    margin-right: 600px;
+    white-space: nowrap; /* Impede que o conteúdo quebre */
+    width: 100%; /* Garante que o menu ocupe toda a largura disponível */
+    overflow: hidden; /* Impede o conteúdo de transbordar, se necessário */
+}
+
+/* Links do menu */
+.menu a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.menu a:hover {
+    color: #fdd835; /* Amarelo claro */
+}
+
+/* Estilo do botão hamburger */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 25px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 30px;
+}
+
+.hamburger span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background: white;
+    border-radius: 5px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Estilo para o menu */
+.menu {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+    transition: transform 0.3s ease;
+}
+
+/* Esconde o menu no mobile */
+.menu.hidden {
+    display: none;
+}
+
+/* Responsividade */
+@media (max-width: 767px) {
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: nowrap;
+    }
+
+    .logo {
+        order: 1;
+    }
+
+    .msg {
+        order: 2;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        margin: 0;
+    }
+
+    /* Exibe o botão hamburger */
+    .hamburger {
+        order: 3;
+        display: block;
+        background: none;
+        border: none;
+        box-shadow: none;
+        cursor: pointer;
+    }
+
+    .hamburger span {
+        display: block;
+        width: 25px;
+        height: 3px;
+        margin: 5px auto;
+        background: white;
+        border-radius: 2px;
+    }
+
+    /* Menu escondido por padrão */
+    .menu {
+        display: none; /* Esconde o menu por padrão */
+        flex-direction: column;
+        position: absolute;
+        gap: 10px;
+        top: 60px;
+        left: 0;
+        right: 0;
+        width: 100%;
+        padding: 20px;
+        border-radius: 5px;
+        z-index: 99;
+        background-color: #2e7d32;
+        margin-top: 20px;
+    }
+
+    /* Exibe o menu quando o hambúrguer é clicado */
+    .menu.show {
+        display: flex; /* Exibe o menu */
+    }
+
+    /* Estilo para os links no menu no mobile */
+    .menu a {
+        color: white;
+        padding: 10px 0;
+        text-align: center;
+    }
+
+    .menu a:hover {
+        color: #fdd835;
+    }
+
+    .context {
+        padding: 0 10px;
+        box-sizing: border-box;
+    }
+
+    .table-wrapper {
+        overflow-x: auto;
+        margin: 20px 0;
+    }
+
+    table {
+        min-width: auto;
+        width: 100%;
+    }
+
+    .msg {
+        width: 100%;
+        justify-content: flex-start;
+        margin-bottom: 10px;
+    }
+
+    .msg form {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .msg input, .msg button {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .logo {
+        max-height: 40px;
+    }
+}
+
+main, h1 {
+    margin: 20px auto;
+    max-width: 1200px;
+    text-align: center;
+    color:  #2e7d32;
+}
+
+.textinho{
+    text-align: center;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-size: 0.9rem;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 5px;
+    text-align: left;
+}
+
+th {
+    background-color: #028a0f;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tr:hover {
+    background-color: #ddd;
+}
+
+footer {
+    background-color: #2e7d32;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.social-icons a {
+    color: white;
+    font-size: 1.5em;
+    transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: #fdd835;
+}
+
+.msg {
+    width: 100%; 
+    display: inline-flex;
+    justify-content: flex-end;
+    margin-bottom: 10px;
+    align-items: center; 
+    margin-left: 110px;
+    padding: 10px;
+    box-sizing: border-box; 
+}
+
+.msg form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px; 
+    width: 100%; 
+    max-width: 400px; 
+    padding: 0 150px; 
+    margin-right: 5px;
+}
+
+
+.msg input, .msg button {
+    padding: 5px;
+    font-size: 0.9rem;
+}
+
+.msg button {
+    background-color: #2e7d32;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.msg button:hover {
+    background-color: #1b5e20;
+}

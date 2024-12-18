@@ -1,0 +1,134 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dicas de Reciclagem</title>
+    <link rel="stylesheet" href="{% static 'css/dicas.css' %}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    
+</head>
+<body>
+    <header>
+        <a href="{% url 'index' %}">
+        <img src="{% static 'images/logo.png' %}" alt="Logo" class="logo">
+        </a>
+        <nav>
+            <ul class="menu">
+                <li><a href="{% url 'index'%}">Home</a></li>
+                <li><a href="{% url 'dicas'%}">Dicas de Reciclagem</a></li>
+                <li><a href="{% url 'parceiros'%}">Parceiros</a></li>
+                <li><a href="#">Sobre Nós</a></li>
+            </ul>
+        </nav>
+
+        <button class="hamburger" aria-label="Abrir menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+
+          <div class="msg">
+            {% if user.is_authenticated %}
+          <p>Bem-vindo(a), {{ user.get_full_name|default:user.username }}!</p>
+          <form action="{% url 'logout' %}" method="post" style="display: inline;">
+              {% csrf_token %}
+              <button type="submit">Sair</button>
+          </form>
+          {% else %}
+          <form action="{% url 'login' %}" method="post" style="display: inline;">
+              {% csrf_token %}
+              <input type="text" name="username" placeholder="Usuário" required>
+              <input type="password" name="password" placeholder="Senha" required>
+              <button type="submit">Entrar</button>
+          </form>
+          {% endif %}
+          </div>
+    </header>
+
+    <main>
+        <section class="intro">
+            <h1>Dicas de Reciclagem</h1>
+            <p> Reciclar é um ato de responsabilidade e cuidado com o planeta. Cada material que descartamos pode ter uma nova utilidade, reduzindo a quantidade de resíduos nos aterros e preservando recursos naturais.
+                Aqui, você encontrará dicas práticas e fáceis de adotar para reciclar corretamente e contribuir com um futuro mais sustentável.
+                A mudança começa em nossas atitudes diárias, e cada pequeno gesto conta. Junte-se a esse movimento e descubra como transformar o descarte em um impacto positivo para o meio ambiente!</p>
+        </section>
+        <section class="tips">
+            <div class="tip">
+                <img src="{% static 'images/papel 2.jpg' %}" alt="Reciclagem de Papel">
+                <h2>Reciclagem de Papel</h2>
+                <p>O papel é um dos materiais mais reciclados no mundo, e sua correta separação é essencial para o reaproveitamento. Antes de descartar, certifique-se de que os papéis, jornais e revistas estejam secos e sem resíduos de alimentos ou óleo, pois isso dificulta a reciclagem.
+                    Reutilize folhas impressas para rascunhos e incentive colegas e familiares a fazerem o mesmo.
+                    Em escolas e escritórios, promova campanhas para a coleta seletiva de papel. Pequenas ações, como evitar o desperdício e optar por versões digitais de documentos, também fazem grande diferença!</p>
+            </div>
+            <div class="tip">
+                <img src="{% static 'images/plastic 2.png' %}" alt="Reciclagem de Plástico">
+                <h2>Reciclagem de Plástico</h2>
+                <p>O plástico está presente em muitos itens do nosso cotidiano, mas é um dos maiores vilões para o meio ambiente. 
+                   Para reciclar corretamente, lave as embalagens plásticas e remova qualquer resíduo antes de descartá-las. 
+                   Separe os diferentes tipos de plástico, pois nem todos têm o mesmo processo de reciclagem. 
+                   Dê preferência a produtos feitos de plástico reciclado e evite o uso de descartáveis, como canudos, talheres e copos, substituindo-os por opções reutilizáveis. 
+                   Cada plástico reaproveitado é uma etapa a menos no ciclo de poluição ambiental!</p>
+            </div>
+            <div class="tip">
+                <img src="{% static 'images/vidro 3.webp' %}" alt="Reciclagem de Vidro">
+                <h2>Reciclagem de Vidro</h2>
+                <p>O vidro é um material 100% reciclável e pode ser reaproveitado infinitamente sem perder suas propriedades. 
+                    No entanto, é importante separar vidros quebrados de objetos inteiros e não misturá-los com outros tipos de resíduos. 
+                    Retire tampas e rótulos antes de descartar e evite misturar com espelhos, cerâmicas ou lâmpadas, que não seguem o mesmo processo de reciclagem. 
+                    Garrafas, potes e frascos podem ser reutilizados em casa ou encaminhados para centros de coleta seletiva. 
+                    Com pequenas atitudes, você contribui para a redução do desperdício e a preservação dos recursos naturais.</p>
+            </div>
+            <div class="tip">
+                <img src="{% static 'images/metal 3.png' %}" alt="Reciclagem de Metal">
+                <h2>Reciclagem de Metal</h2>
+                <p>O metal é um dos materiais mais valiosos na reciclagem devido à sua durabilidade e possibilidade de reaproveitamento quase ilimitado. 
+                    Latas de alumínio, tampas de garrafas, panelas e outros itens metálicos devem ser limpos antes do descarte. 
+                    Organize campanhas para recolher latinhas e outros metais na sua comunidade, pois eles têm grande valor comercial nos centros de reciclagem. 
+                    Reduza o uso de metais descartáveis, como embalagens e talheres de alumínio, e prefira alternativas reutilizáveis. 
+                    Ao reciclar o metal, você ajuda a economizar energia e a preservar os recursos minerais do planeta!</p>
+            </div>
+        </section>
+        
+        <section class="call-to-action">
+            <p>“O ambiente é o que somos em nós mesmos. Nós e o ambiente somos dois processos diferentes; nós somos o ambiente e o ambiente somos nós.”</p>
+            <h5>Jiddu Krishnamurti</h5>
+        </section>
+        
+    </main>
+    <footer>
+        <p>© 2024 Recicla Aracati. Todos os direitos reservados aos alunos do 2° ano integrado, IFCE Aracati.</p>
+        <div class="social-icons">
+          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-facebook"></i>
+          </a>
+          <a href="https://wa.me" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-whatsapp"></i>
+          </a>
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-instagram"></i>
+          </a>
+        </div>
+      </footer>
+
+      <script>
+
+        document.addEventListener("DOMContentLoaded",
+        
+        function () {
+        
+        const hamburger =
+        
+        document.querySelector(".hamburger");
+        
+        const menu = document.querySelector(".menu");
+        hamburger.addEventListener("click", function ()
+        
+        {menu.classList.toggle("show");
+        
+        });
+        });
+        </script>
+</body>
+</html>
